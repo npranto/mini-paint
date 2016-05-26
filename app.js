@@ -1,9 +1,22 @@
 $(document).ready( function (){
 	var color = "white";
 	var colors = "red green yellow blue white";
+	var isdraggable = false;
 
 	$(".box").on("click", function(){
 		$(this).addClass(color);
+	});
+
+	$(".box").on("mousedown", function(){
+		isdraggable = true;
+	});
+	$(".box").on("mousemove", function(){
+		if(isdraggable){
+			$(this).addClass(color);	
+		}
+	});
+	$(".box").on("mouseup", function(){
+		isdraggable = false;
 	});
 
 	$(".box").on("dblclick", function(){
